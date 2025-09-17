@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contoh Audio HTML</title>
+</head>
+<body>
+    <h2></h2>
+    <p align="center">
+    <!-- Audio Player -->
+    <audio controls>
+        <source src="keadilan.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung tag audio.
+    </audio>
+
+</body>
+</html>
+
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Presentasi Kelompok 2 - Sistem Peradilan</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #2c3e50;
+      color: white;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      padding: 60px 40px;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: opacity 0.8s ease;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .slide h1, .slide h2 {
+      margin-bottom: 20px;
+    }
+
+    .slide p, .slide ul {
+      max-width: 800px;
+      line-height: 1.6;
+    }
+
+    .slide ul {
+      text-align: left;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .controls button {
+      background: #3498db;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .controls button:hover {
+      background: #2980b9;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1 -->
+  <div class="slide active">
+    <h1>Sistem Peradilan di Indonesia</h1>
+    <h2>Presentasi Kelompok 2</h2>
+    <p>Materi: Sistem Peradilan di Indonesia</p>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide">
+    <h2>Daftar Anggota Kelompok</h2>
+    <ul>
+      <li>Alparid</li>
+      <li>Repaldi</li>
+      <li>Rizki Fauzi</li>
+      <li>Riva</li>
+      <li>Adit</li>
+      <li>septian</li>
+      <li>yuda</li>
+    </ul>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide">
+    <h2>Pengertian Sistem Peradilan</h2>
+    <p>
+      Sistem peradilan di Indonesia adalah tatanan lembaga dan proses hukum untuk menegakkan keadilan. Ini mencakup proses penyelidikan, penuntutan, hingga putusan pengadilan.
+    </p>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide">
+    <h2>Lembaga-Lembaga Peradilan</h2>
+    <ul>
+      <li><strong>Mahkamah Agung (MA)</strong>: Pengadilan tertinggi.</li>
+      <li><strong>Mahkamah Konstitusi (MK)</strong>: Menguji UU terhadap UUD.</li>
+      <li><strong>Komisi Yudisial</strong>: Mengawasi hakim.</li>
+      <li><strong>Peradilan Umum</strong>, <strong>Agama</strong>, <strong>Militer</strong>, dan <strong>TUN</strong>.</li>
+    </ul>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide">
+    <h2>Alur Sistem Peradilan</h2>
+    <p>
+      Proses peradilan dimulai dari penyelidikan oleh kepolisian, dilanjutkan oleh penuntutan dari kejaksaan, kemudian persidangan di pengadilan, dan diakhiri dengan eksekusi putusan.
+    </p>
+  </div>
+
+  <!-- SLIDE 6 -->
+  <div class="slide">
+    <h2>Kesimpulan</h2>
+    <p>
+      Sistem peradilan Indonesia adalah fondasi penting dalam penegakan hukum dan keadilan. Keterpaduan antar lembaga dan integritas penegak hukum sangat menentukan keberhasilannya.
+    </p>
+  </div>
+
+  <!-- SLIDE 7 -->
+  <div class="slide">
+    <h2>Terima Kasih</h2>
+    <p>Presentasi Kelompok 2</p>
+  </div>
+
+  <!-- Navigasi -->
+  <div class="controls">
+    <button onclick="prevSlide()">&#8592; Sebelumnya</button>
+    <button onclick="nextSlide()">Selanjutnya &#8594;</button>
+  </div>
+
+  <footer>&copy; Di Buat Oleh Alparid</footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Navigasi pakai keyboard panah
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+
+</body>
+</html>
