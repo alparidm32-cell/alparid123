@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="theme-color" content="#198754">
 <title>Monitoring Sholat & Al-Qur'an 30 Juz</title>
+
 <style>
 :root{
   --green:#198754;--green2:#0f6b43;--light:#f4fbf6;--soft:#e8f5ec;
@@ -12,11 +13,20 @@
   --shadow:0 10px 30px rgba(25,135,84,.12);--radius:22px;
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:#edf3ef;color:var(--text)}
+html,body{
+  margin:0;padding:0;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  background:#edf3ef;color:var(--text)
+}
 button,input,select{font:inherit}
 button{cursor:pointer}
 .hidden{display:none!important}
-.app{min-height:100vh;max-width:520px;margin:auto;background:var(--light);position:relative;overflow:hidden}
+
+.app{
+  min-height:100vh;max-width:520px;margin:auto;
+  background:var(--light);position:relative;overflow:hidden
+}
+
 .pattern{
   background:
     radial-gradient(circle at 20% 20%,rgba(25,135,84,.12) 0 2px,transparent 3px),
@@ -24,759 +34,3781 @@ button{cursor:pointer}
     linear-gradient(135deg,rgba(25,135,84,.10),transparent 35%,rgba(25,135,84,.07));
   background-size:24px 24px,30px 30px,100% 100%;
 }
+
 .screen{min-height:100vh}
-.auth-top{padding:55px 25px 28px;border-radius:0 0 36px 36px;background:linear-gradient(160deg,#dff4e7,#f8fff9)}
-.brand{text-align:center}
-.logo{
- width:78px;height:78px;border:2px solid rgba(25,135,84,.25);border-radius:26px;
- margin:0 auto 14px;display:grid;place-items:center;background:#fff;color:var(--green);
- font-size:42px;box-shadow:var(--shadow)
+
+.auth-top{
+  padding:55px 25px 28px;border-radius:0 0 36px 36px;
+  background:linear-gradient(160deg,#dff4e7,#f8fff9)
 }
+
+.brand{text-align:center}
+
+.logo{
+ width:78px;height:78px;border:2px solid rgba(25,135,84,.25);
+ border-radius:26px;margin:0 auto 14px;display:grid;place-items:center;
+ background:#fff;color:var(--green);font-size:42px;box-shadow:var(--shadow)
+}
+
 .brand h1{margin:0;color:var(--green2);font-size:30px}
 .brand p{margin:7px 0 0;color:var(--muted);font-size:13px}
-.auth-card{margin:-4px 18px 25px;padding:23px;background:#fff;border-radius:28px;box-shadow:var(--shadow)}
-.tabs{display:flex;background:#eef6f0;padding:5px;border-radius:14px;margin-bottom:20px}
-.tabs button{flex:1;border:0;background:transparent;padding:10px;border-radius:10px;color:var(--muted);font-weight:700}
-.tabs button.active{background:#fff;color:var(--green);box-shadow:0 4px 12px rgba(0,0,0,.06)}
-label{display:block;font-size:12px;font-weight:700;margin:13px 0 7px;color:#40564c}
-input,select{
- width:100%;padding:13px 14px;border:1px solid #dce8df;border-radius:13px;outline:none;background:#fbfdfb;color:var(--text)
+
+.auth-card{
+  margin:-4px 18px 25px;padding:23px;background:#fff;
+  border-radius:28px;box-shadow:var(--shadow)
 }
-input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(25,135,84,.09)}
-.btn{border:0;border-radius:14px;padding:13px 16px;font-weight:800;transition:.15s}
-.btn-primary{width:100%;background:var(--green);color:#fff;margin-top:18px;box-shadow:0 8px 18px rgba(25,135,84,.2)}
+
+.tabs{
+  display:flex;background:#eef6f0;padding:5px;
+  border-radius:14px;margin-bottom:20px
+}
+
+.tabs button{
+  flex:1;border:0;background:transparent;padding:10px;
+  border-radius:10px;color:var(--muted);font-weight:700
+}
+
+.tabs button.active{
+  background:#fff;color:var(--green);
+  box-shadow:0 4px 12px rgba(0,0,0,.06)
+}
+
+label{
+  display:block;font-size:12px;font-weight:700;
+  margin:13px 0 7px;color:#40564c
+}
+
+input,select{
+ width:100%;padding:13px 14px;border:1px solid #dce8df;
+ border-radius:13px;outline:none;background:#fbfdfb;color:var(--text)
+}
+
+input:focus,select:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(25,135,84,.09)
+}
+
+.btn{
+  border:0;border-radius:14px;padding:13px 16px;
+  font-weight:800;transition:.15s
+}
+
+.btn-primary{
+  width:100%;background:var(--green);color:#fff;
+  margin-top:18px;box-shadow:0 8px 18px rgba(25,135,84,.2)
+}
+
 .btn-primary:active{transform:scale(.98)}
 .btn-light{background:#edf7f0;color:var(--green2)}
 .btn-danger{background:#fff0f1;color:var(--danger)}
 .btn-sm{padding:6px 12px;font-size:11px;border-radius:10px}
-.small{text-align:center;color:var(--muted);font-size:11px;margin-top:14px;line-height:1.5}
-.error{background:#fff0f1;color:#a72736;padding:10px 12px;border-radius:12px;font-size:12px;margin-top:12px}
-.success{background:#e8f7ed;color:#17663f;padding:10px 12px;border-radius:12px;font-size:12px;margin-top:12px}
 
-.header{padding:23px 20px 16px;background:#fff;border-bottom:1px solid #e4eee7;position:sticky;top:0;z-index:10}
-.header-row{display:flex;align-items:center;justify-content:space-between}
-.header .title{font-size:22px;font-weight:850;color:var(--green2)}
-.header .sub{font-size:11px;color:var(--muted);margin-top:3px}
-.icon-btn{width:40px;height:40px;border:0;border-radius:13px;background:#edf7f0;color:var(--green);font-size:18px}
+.small{
+  text-align:center;color:var(--muted);
+  font-size:11px;margin-top:14px;line-height:1.5
+}
+
+.error{
+  background:#fff0f1;color:#a72736;padding:10px 12px;
+  border-radius:12px;font-size:12px;margin-top:12px
+}
+
+.success{
+  background:#e8f7ed;color:#17663f;padding:10px 12px;
+  border-radius:12px;font-size:12px;margin-top:12px
+}
+
+.header{
+  padding:23px 20px 16px;background:#fff;
+  border-bottom:1px solid #e4eee7;position:sticky;
+  top:0;z-index:10
+}
+
+.header-row{
+  display:flex;align-items:center;justify-content:space-between
+}
+
+.header .title{
+  font-size:22px;font-weight:850;color:var(--green2)
+}
+
+.header .sub{
+  font-size:11px;color:var(--muted);margin-top:3px
+}
+
+.icon-btn{
+  width:40px;height:40px;border:0;border-radius:13px;
+  background:#edf7f0;color:var(--green);font-size:18px
+}
+
 .content{padding:17px 17px 92px}
-.greeting{padding:22px;border-radius:25px;color:#fff;background:linear-gradient(135deg,#198754,#3aa66f);box-shadow:var(--shadow);position:relative;overflow:hidden}
-.greeting:after{content:"☪";position:absolute;right:20px;bottom:-12px;font-size:90px;opacity:.12}
+
+.greeting{
+  padding:22px;border-radius:25px;color:#fff;
+  background:linear-gradient(135deg,#198754,#3aa66f);
+  box-shadow:var(--shadow);position:relative;overflow:hidden
+}
+
+.greeting:after{
+  content:"☪";position:absolute;right:20px;bottom:-12px;
+  font-size:90px;opacity:.12
+}
+
 .greeting .date{font-size:12px;opacity:.88}
 .greeting h2{margin:7px 0 3px;font-size:23px}
 .greeting p{margin:0;font-size:12px;opacity:.9}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin:22px 2px 10px}
+
+.section-head{
+  display:flex;justify-content:space-between;
+  align-items:center;margin:22px 2px 10px
+}
+
 .section-head h3{font-size:16px;margin:0}
 .section-head span{font-size:11px;color:var(--muted)}
-.card{background:#fff;border-radius:20px;padding:16px;box-shadow:0 6px 20px rgba(26,65,45,.07)}
-.progress-wrap{display:flex;align-items:center;gap:13px}
-.progress-ring{width:67px;height:67px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--green) var(--p,0%),#e4eee7 0)}
-.progress-ring:before{content:"";width:51px;height:51px;border-radius:50%;background:#fff;position:absolute}
-.progress-num{position:relative;font-size:14px;font-weight:850;color:var(--green)}
-.progress-info{flex:1}.progress-info b{font-size:14px}.progress-info p{margin:5px 0 0;font-size:11px;color:var(--muted)}
+
+.card{
+  background:#fff;border-radius:20px;padding:16px;
+  box-shadow:0 6px 20px rgba(26,65,45,.07)
+}
+
+.progress-wrap{
+  display:flex;align-items:center;gap:13px
+}
+
+.progress-ring{
+  width:67px;height:67px;border-radius:50%;
+  display:grid;place-items:center;
+  background:conic-gradient(
+    var(--green) var(--p,0%),
+    #e4eee7 0
+  )
+}
+
+.progress-ring:before{
+  content:"";width:51px;height:51px;border-radius:50%;
+  background:#fff;position:absolute
+}
+
+.progress-num{
+  position:relative;font-size:14px;
+  font-weight:850;color:var(--green)
+}
+
+.progress-info{flex:1}
+.progress-info b{font-size:14px}
+.progress-info p{
+  margin:5px 0 0;font-size:11px;color:var(--muted)
+}
+
 .prayers{display:grid;gap:9px}
+
 .prayer{
- display:flex;align-items:center;gap:12px;padding:13px;border:1px solid #e5eee8;border-radius:16px;
- background:#fcfffd
+ display:flex;align-items:center;gap:12px;padding:13px;
+ border:1px solid #e5eee8;border-radius:16px;background:#fcfffd
 }
-.prayer.checked{background:#effaf2;border-color:#bfe3ca}
+
+.prayer.checked{
+  background:#effaf2;border-color:#bfe3ca
+}
+
 .check{
- width:28px;height:28px;border-radius:9px;border:2px solid #b9c9bf;display:grid;place-items:center;
- flex:none;color:#fff;font-weight:900
+ width:28px;height:28px;border-radius:9px;
+ border:2px solid #b9c9bf;display:grid;
+ place-items:center;flex:none;color:#fff;font-weight:900
 }
-.prayer.checked .check{background:var(--green);border-color:var(--green)}
-.prayer .name{font-weight:800;font-size:13px}.prayer .time{font-size:10px;color:var(--muted);margin-top:2px}
-.prayer .status{margin-left:auto;font-size:10px;color:var(--muted)}
-.prayer.checked .status{color:var(--green);font-weight:800}
-.attendance-card{border:1px dashed #b8d8c2;background:#f9fffa}
-.photo-box{height:190px;border-radius:17px;background:#eef6f0;display:grid;place-items:center;overflow:hidden;margin-bottom:12px}
-.photo-box img{width:100%;height:100%;object-fit:cover}
-.photo-placeholder{text-align:center;color:var(--muted);font-size:12px}
-.photo-placeholder .cam{font-size:38px;display:block;margin-bottom:5px}
-.photo-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.history-item{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #edf1ee}
+
+.prayer.checked .check{
+  background:var(--green);border-color:var(--green)
+}
+
+.prayer .name{font-weight:800;font-size:13px}
+.prayer .time{
+  font-size:10px;color:var(--muted);margin-top:2px
+}
+
+.prayer .status{
+  margin-left:auto;font-size:10px;color:var(--muted)
+}
+
+.prayer.checked .status{
+  color:var(--green);font-weight:800
+}
+
+.attendance-card{
+  border:1px dashed #b8d8c2;background:#f9fffa
+}
+
+.photo-box{
+  height:190px;border-radius:17px;background:#eef6f0;
+  display:grid;place-items:center;overflow:hidden;margin-bottom:12px
+}
+
+.photo-box img{
+  width:100%;height:100%;object-fit:cover
+}
+
+.photo-placeholder{
+  text-align:center;color:var(--muted);font-size:12px
+}
+
+.photo-placeholder .cam{
+  font-size:38px;display:block;margin-bottom:5px
+}
+
+.photo-actions{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px
+}
+
+.history-item{
+  display:flex;align-items:center;gap:11px;
+  padding:12px 0;border-bottom:1px solid #edf1ee
+}
+
 .history-item:last-child{border-bottom:0}
-.thumb{width:44px;height:44px;border-radius:12px;object-fit:cover;background:#e9f2ec}
-.h-info{flex:1}.h-info b{font-size:12px}.h-info small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
-.badge{padding:5px 8px;border-radius:9px;background:#e8f7ed;color:var(--green2);font-size:9px;font-weight:800}
-.badge-admin{background:#e0f2fe;color:#0369a1}
-.bottom-nav{
- position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);
- background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid #e3ece6;
- display:grid;grid-template-columns:repeat(4,1fr);padding:8px 6px 9px;z-index:20
+
+.thumb{
+  width:44px;height:44px;border-radius:12px;
+  object-fit:cover;background:#e9f2ec
 }
-.bottom-nav.nav-admin{grid-template-columns:repeat(5,1fr)}
-.nav-btn{border:0;background:none;color:#84938b;font-size:10px;font-weight:700;padding:4px 2px}
-.nav-btn .ico{display:block;font-size:18px;margin-bottom:2px}
+
+.h-info{flex:1}
+.h-info b{font-size:12px}
+.h-info small{
+  display:block;color:var(--muted);
+  font-size:10px;margin-top:3px
+}
+
+.badge{
+  padding:5px 8px;border-radius:9px;
+  background:#e8f7ed;color:var(--green2);
+  font-size:9px;font-weight:800
+}
+
+.badge-admin{
+  background:#e0f2fe;color:#0369a1
+}
+
+.bottom-nav{
+ position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+ width:min(520px,100%);background:rgba(255,255,255,.96);
+ backdrop-filter:blur(12px);border-top:1px solid #e3ece6;
+ display:grid;grid-template-columns:repeat(4,1fr);
+ padding:8px 6px 9px;z-index:20
+}
+
+.bottom-nav.nav-admin{
+  grid-template-columns:repeat(5,1fr)
+}
+
+.nav-btn{
+  border:0;background:none;color:#84938b;
+  font-size:10px;font-weight:700;padding:4px 2px
+}
+
+.nav-btn .ico{
+  display:block;font-size:18px;margin-bottom:2px
+}
+
 .nav-btn.active{color:var(--green)}
+
 .profile-card{text-align:center}
-.avatar{width:82px;height:82px;border-radius:28px;background:#e7f5eb;display:grid;place-items:center;margin:4px auto 12px;font-size:37px;color:var(--green)}
-.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
-.stat{padding:13px 5px;background:#f4faf6;border-radius:14px}.stat b{display:block;font-size:17px;color:var(--green)}.stat small{font-size:9px;color:var(--muted)}
-.modal{position:fixed;inset:0;background:rgba(13,35,23,.45);display:none;align-items:flex-end;justify-content:center;z-index:50}
+
+.avatar{
+  width:82px;height:82px;border-radius:28px;
+  background:#e7f5eb;display:grid;place-items:center;
+  margin:4px auto 12px;font-size:37px;color:var(--green)
+}
+
+.stat-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:8px;margin-top:14px
+}
+
+.stat{
+  padding:13px 5px;
+  background:#f4faf6;border-radius:14px
+}
+
+.stat b{
+  display:block;font-size:17px;color:var(--green)
+}
+
+.stat small{
+  font-size:9px;color:var(--muted)
+}
+
+.modal{
+  position:fixed;inset:0;background:rgba(13,35,23,.45);
+  display:none;align-items:flex-end;
+  justify-content:center;z-index:50
+}
+
 .modal.show{display:flex}
-.modal-box{width:min(520px,100%);background:#fff;border-radius:26px 26px 0 0;padding:20px;max-height:85vh;overflow-y:auto}
-.modal-box h3{margin:0 0 8px}.modal-box p{font-size:12px;color:var(--muted)}
-.row{display:flex;gap:8px}.row>*{flex:1}
-.empty{text-align:center;padding:24px;color:var(--muted);font-size:12px}
 
-/* STYLES AL-QURAN */
-.surah-card{display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:16px;background:#fff;border:1px solid #e5eee8;margin-bottom:10px;cursor:pointer;transition:.15s}
-.surah-card:hover{background:#f4faf6;border-color:#bfe3ca}
-.surah-num{width:36px;height:36px;border-radius:12px;background:#e8f7ed;color:var(--green);display:grid;place-items:center;font-weight:800;font-size:12px}
+.modal-box{
+  width:min(520px,100%);background:#fff;
+  border-radius:26px 26px 0 0;padding:20px;
+  max-height:85vh;overflow-y:auto
+}
+
+.modal-box h3{margin:0 0 8px}
+.modal-box p{font-size:12px;color:var(--muted)}
+
+.row{display:flex;gap:8px}
+.row>*{flex:1}
+
+.empty{
+  text-align:center;padding:24px;
+  color:var(--muted);font-size:12px
+}
+
+/* QURAN */
+.surah-card{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px;border-radius:16px;background:#fff;
+  border:1px solid #e5eee8;margin-bottom:10px;
+  cursor:pointer;transition:.15s
+}
+
+.surah-card:hover{
+  background:#f4faf6;border-color:#bfe3ca
+}
+
+.surah-num{
+  width:36px;height:36px;border-radius:12px;
+  background:#e8f7ed;color:var(--green);
+  display:grid;place-items:center;font-weight:800;font-size:12px
+}
+
 .surah-info{flex:1;margin-left:12px}
-.surah-info b{font-size:14px;color:var(--text);display:block}
-.surah-info small{color:var(--muted);font-size:11px}
-.surah-arabic{font-size:20px;font-weight:700;color:var(--green2);font-family:'Amiri', serif}
+.surah-info b{
+  font-size:14px;color:var(--text);display:block
+}
 
-.ayah-box{background:#fff;border-radius:16px;padding:16px;margin-bottom:12px;border:1px solid #e5eee8}
-.ayah-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.ayah-num-badge{background:#edf7f0;color:var(--green);font-size:11px;font-weight:800;padding:4px 10px;border-radius:10px}
-.ayah-arabic{font-size:22px;line-height:2.2;text-align:right;color:#0f3822;direction:rtl;margin-bottom:12px;font-weight:600}
-.ayah-translation{font-size:13px;color:#40564c;line-height:1.6}
+.surah-info small{
+  color:var(--muted);font-size:11px
+}
 
-/* MOTIVASI QUOTE CARD */
-.quote-card{background:linear-gradient(135deg,#e8f5ec,#ffffff);border:1px solid #cce5d5;border-radius:18px;padding:16px;margin-bottom:18px;position:relative}
-.quote-title{font-size:11px;font-weight:800;color:var(--green2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
-.quote-text{font-size:13px;font-style:italic;color:#2c4035;line-height:1.5;margin:0}
-.quote-author{font-size:11px;font-weight:700;color:var(--muted);margin-top:8px;text-align:right}
+.surah-arabic{
+  font-size:20px;font-weight:700;color:var(--green2);
+  font-family:'Amiri',serif
+}
 
-@media(min-width:650px){body{padding:20px}.app{border-radius:30px;box-shadow:0 20px 60px rgba(0,0,0,.12)}.bottom-nav{border-radius:0 0 30px 30px}}
+.ayah-box{
+  background:#fff;border-radius:16px;padding:16px;
+  margin-bottom:12px;border:1px solid #e5eee8
+}
+
+.ayah-header{
+  display:flex;justify-content:space-between;
+  align-items:center;margin-bottom:10px
+}
+
+.ayah-num-badge{
+  background:#edf7f0;color:var(--green);
+  font-size:11px;font-weight:800;padding:4px 10px;
+  border-radius:10px
+}
+
+.ayah-arabic{
+  font-size:22px;line-height:2.2;text-align:right;
+  color:#0f3822;direction:rtl;margin-bottom:12px;
+  font-weight:600
+}
+
+.ayah-translation{
+  font-size:13px;color:#40564c;line-height:1.6
+}
+
+/* MOTIVASI */
+.quote-card{
+  background:linear-gradient(135deg,#e8f5ec,#ffffff);
+  border:1px solid #cce5d5;border-radius:18px;
+  padding:16px;margin-bottom:18px;position:relative
+}
+
+.quote-title{
+  font-size:11px;font-weight:800;color:var(--green2);
+  text-transform:uppercase;letter-spacing:.5px;
+  margin-bottom:6px;display:flex;align-items:center;gap:6px
+}
+
+.quote-text{
+  font-size:13px;font-style:italic;color:#2c4035;
+  line-height:1.5;margin:0
+}
+
+.quote-author{
+  font-size:11px;font-weight:700;color:var(--muted);
+  margin-top:8px;text-align:right
+}
+
+@media(min-width:650px){
+  body{padding:20px}
+  .app{
+    border-radius:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,.12)
+  }
+  .bottom-nav{border-radius:0 0 30px 30px}
+}
 </style>
 </head>
+
 <body>
+
 <div class="app">
 
-<!-- LOGIN / REGISTER -->
+<!-- ================= LOGIN / REGISTER ================= -->
+
 <section id="authScreen" class="screen">
+
   <div class="auth-top pattern">
+
     <div class="brand">
+
       <div class="logo">☪</div>
+
       <h1>Monitoring Sholat</h1>
+
       <p>Catat kehadiran, alarm sholat, & Al-Qur'an 30 Juz</p>
+
     </div>
+
   </div>
+
   <div class="auth-card">
+
     <div class="tabs">
-      <button id="tabLogin" class="active" onclick="showAuth('login')">Masuk</button>
-      <button id="tabRegister" onclick="showAuth('register')">Daftar</button>
+
+      <button
+        id="tabLogin"
+        class="active"
+        onclick="showAuth('login')">
+        Masuk
+      </button>
+
+      <button
+        id="tabRegister"
+        onclick="showAuth('register')">
+        Daftar
+      </button>
+
     </div>
+
+    <!-- LOGIN -->
 
     <form id="loginForm" onsubmit="login(event)">
+
       <label>Username / Email</label>
-      <input id="loginUser" required placeholder="Masukkan username">
+
+      <input
+        id="loginUser"
+        required
+        placeholder="Masukkan username">
+
       <label>Password</label>
-      <input id="loginPass" type="password" required placeholder="Masukkan password">
-      <button class="btn btn-primary">Masuk ke Aplikasi</button>
+
+      <input
+        id="loginPass"
+        type="password"
+        required
+        placeholder="Masukkan password">
+
+      <button class="btn btn-primary">
+        Masuk ke Aplikasi
+      </button>
+
       <div id="loginMsg"></div>
+
     </form>
 
-    <form id="registerForm" class="hidden" onsubmit="register(event)">
+    <!-- REGISTER -->
+
+    <form
+      id="registerForm"
+      class="hidden"
+      onsubmit="register(event)">
+
       <label>Nama Lengkap</label>
-      <input id="regName" required placeholder="Nama lengkap">
+
+      <input
+        id="regName"
+        required
+        placeholder="Nama lengkap">
+
       <label>Username</label>
-      <input id="regUser" required minlength="3" placeholder="Username">
+
+      <input
+        id="regUser"
+        required
+        minlength="3"
+        placeholder="Username">
+
       <label>Password</label>
-      <input id="regPass" type="password" required minlength="4" placeholder="Minimal 4 karakter">
+
+      <input
+        id="regPass"
+        type="password"
+        required
+        minlength="4"
+        placeholder="Minimal 4 karakter">
+
       <label>Konfirmasi Password</label>
-      <input id="regPass2" type="password" required placeholder="Ulangi password">
-      <button class="btn btn-primary">Buat Akun</button>
+
+      <input
+        id="regPass2"
+        type="password"
+        required
+        placeholder="Ulangi password">
+
+      <button class="btn btn-primary">
+        Buat Akun
+      </button>
+
       <div id="regMsg"></div>
+
     </form>
+
     <div class="small">
+
       Data akun tersimpan lokal di browser.<br>
-      <b>Akun Admin Default:</b> Username: <code>admin</code> | Password: <code>admin</code>
+
+      <b>Akun Admin Default:</b>
+      Username: <code>admin</code> |
+      Password: <code>admin</code>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- MAIN APP -->
+
+<!-- ================= MAIN APP ================= -->
+
 <section id="mainScreen" class="screen hidden">
-  <header class="header">
-    <div class="header-row">
-      <div>
-        <div class="title" id="pageTitle">Monitoring Sholat</div>
-        <div class="sub" id="headerSub">Monitoring harian</div>
+
+<header class="header">
+
+  <div class="header-row">
+
+    <div>
+
+      <div class="title" id="pageTitle">
+        Monitoring Sholat
       </div>
-      <button class="icon-btn" onclick="logout()" title="Keluar">↪</button>
-    </div>
-  </header>
 
-  <!-- HOME PAGE -->
-  <main id="homePage" class="content">
-    <div class="greeting">
-      <div class="date" id="todayDate"></div>
-      <h2>Assalamu'alaikum 👋</h2>
-      <p id="welcomeName">Selamat datang di Monitoring Sholat</p>
+      <div class="sub" id="headerSub">
+        Monitoring harian
+      </div>
+
     </div>
 
-    <!-- KATA MOTIVASI HARIAN BAHASA INDONESIA -->
-    <div class="quote-card" style="margin-top:15px;">
-      <div class="quote-title">💡 Motivasi Hari Ini <button onclick="getDailyIndoQuote(true)" style="border:none;background:none;cursor:pointer;font-size:12px;margin-left:auto;color:var(--green2);font-weight:700;">🔄 Acak</button></div>
-      <p class="quote-text" id="quoteText">"Niatkan setiap aktivitas untuk ibadah, maka lelahmu akan berbuah pahala."</p>
-      <div class="quote-author" id="quoteAuthor">- Kata Hikmah Islami</div>
+    <button
+      class="icon-btn"
+      onclick="logout()"
+      title="Keluar">
+      ↪
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<main id="homePage" class="content">
+
+  <div class="greeting">
+
+    <div class="date" id="todayDate"></div>
+
+    <h2>Assalamu'alaikum 👋</h2>
+
+    <p id="welcomeName">
+      Selamat datang di Monitoring Sholat
+    </p>
+
+  </div>
+
+
+  <!-- MOTIVASI -->
+
+  <div
+    class="quote-card"
+    style="margin-top:15px;">
+
+    <div class="quote-title">
+
+      💡 Motivasi Hari Ini
+
+      <button
+        onclick="getDailyIndoQuote(true)"
+        style="
+          border:none;
+          background:none;
+          cursor:pointer;
+          font-size:12px;
+          margin-left:auto;
+          color:var(--green2);
+          font-weight:700;
+        ">
+        🔄 Acak
+      </button>
+
     </div>
 
-    <div class="section-head"><h3>Progress Hari Ini</h3><span id="progressText">0/5 sholat</span></div>
-    <div class="card">
-      <div class="progress-wrap">
-        <div class="progress-ring" id="progressRing" style="--p:0%">
-          <div class="progress-num" id="progressNum">0%</div>
+    <p
+      class="quote-text"
+      id="quoteText">
+      "Niatkan setiap aktivitas untuk ibadah,
+      maka lelahmu akan berbuah pahala."
+    </p>
+
+    <div
+      class="quote-author"
+      id="quoteAuthor">
+      - Kata Hikmah Islami
+    </div>
+
+  </div>
+
+
+  <!-- PROGRESS -->
+
+  <div class="section-head">
+
+    <h3>Progress Hari Ini</h3>
+
+    <span id="progressText">
+      0/5 sholat
+    </span>
+
+  </div>
+
+  <div class="card">
+
+    <div class="progress-wrap">
+
+      <div
+        class="progress-ring"
+        id="progressRing"
+        style="--p:0%">
+
+        <div
+          class="progress-num"
+          id="progressNum">
+          0%
         </div>
-        <div class="progress-info">
-          <b id="progressTitle">Belum ada sholat yang diceklis</b>
-          <p>Centang sholat yang sudah dilaksanakan hari ini.</p>
-        </div>
+
       </div>
+
+      <div class="progress-info">
+
+        <b id="progressTitle">
+          Belum ada sholat yang diceklis
+        </b>
+
+        <p>
+          Centang sholat yang sudah
+          dilaksanakan hari ini.
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="section-head"><h3>Sholat 5 Waktu</h3><span>Hari ini</span></div>
-    <div class="prayers card" id="prayerList"></div>
+  </div>
 
-    <div class="section-head"><h3>Absensi</h3><span>Foto sebagai bukti</span></div>
-    <div class="card attendance-card">
-      <div class="photo-box" id="photoBox">
-        <div class="photo-placeholder"><span class="cam">📷</span>Belum ada foto absensi</div>
+
+  <!-- SHOLAT -->
+
+  <div class="section-head">
+
+    <h3>Sholat 5 Waktu</h3>
+
+    <span>Hari ini</span>
+
+  </div>
+
+  <div
+    class="prayers card"
+    id="prayerList">
+  </div>
+
+
+  <!-- ABSENSI -->
+
+  <div class="section-head">
+
+    <h3>Absensi</h3>
+
+    <span>Foto sebagai bukti</span>
+
+  </div>
+
+  <div class="card attendance-card">
+
+    <div
+      class="photo-box"
+      id="photoBox">
+
+      <div class="photo-placeholder">
+
+        <span class="cam">📷</span>
+
+        Belum ada foto absensi
+
       </div>
-      <div class="photo-actions">
-        <button class="btn btn-light" onclick="openCamera()">📷 Kamera</button>
-        <button class="btn btn-light" onclick="document.getElementById('photoInput').click()">🖼️ Galeri</button>
-      </div>
-      <input id="photoInput" type="file" accept="image/*" capture="environment" class="hidden" onchange="loadPhoto(event)">
-      <button class="btn btn-primary" onclick="saveAttendance()">Simpan Absensi Hari Ini</button>
-      <div id="attMsg"></div>
+
     </div>
 
-    <div class="section-head"><h3>Riwayat Absensi</h3><span id="historyCount">0 data</span></div>
-    <div class="card" id="historyList"></div>
-  </main>
 
-  <!-- HALAMAN AL-QURAN (30 JUZ) -->
-  <main id="quranPage" class="content hidden">
-    <div id="quranSurahListView">
-      <div class="section-head">
-        <h3>Al-Qur'an 30 Juz</h3>
-        <span>114 Surah</span>
-      </div>
-      <input id="searchSurah" placeholder="🔍 Cari nama surah atau nomor..." oninput="filterSurah()" style="margin-bottom:12px;">
-      <div id="surahListContainer">
-        <div class="empty">Memuat daftar surah...</div>
-      </div>
+    <div class="photo-actions">
+
+      <button
+        class="btn btn-light"
+        onclick="openCamera()">
+        📷 Kamera
+      </button>
+
+      <button
+        class="btn btn-light"
+        onclick="document.getElementById('photoInput').click()">
+        🖼️ Galeri
+      </button>
+
     </div>
 
-    <div id="quranDetailView" class="hidden">
-      <button class="btn btn-light btn-sm" onclick="backToSurahList()" style="margin-bottom:12px;">← Kembali ke Daftar Surah</button>
-      <div class="greeting" style="margin-bottom:14px; text-align:center;">
-        <h2 id="detailSurahName" style="font-size:20px;"></h2>
-        <p id="detailSurahSub" style="font-size:12px;opacity:.9;"></p>
-      </div>
-      <div id="ayahListContainer">
-        <div class="empty">Memuat ayat-ayat...</div>
-      </div>
-    </div>
-  </main>
 
-  <!-- HALAMAN RIWAYAT -->
-  <main id="historyPage" class="content hidden">
-    <div class="section-head"><h3>Riwayat Monitoring</h3><span>Semua data akun</span></div>
-    <div class="card" id="allHistoryList"></div>
-  </main>
+    <input
+      id="photoInput"
+      type="file"
+      accept="image/*"
+      capture="environment"
+      class="hidden"
+      onchange="loadPhoto(event)">
 
-  <!-- PANEL ADMIN -->
-  <main id="adminPage" class="content hidden">
+
+    <button
+      class="btn btn-primary"
+      onclick="saveAttendance()">
+      Simpan Absensi Hari Ini
+    </button>
+
+    <div id="attMsg"></div>
+
+  </div>
+
+
+  <!-- RIWAYAT USER -->
+
+  <div class="section-head">
+
+    <h3>Riwayat Absensi</h3>
+
+    <span id="historyCount">
+      0 data
+    </span>
+
+  </div>
+
+  <div
+    class="card"
+    id="historyList">
+  </div>
+
+</main>
+
+
+<!-- ================= QURAN ================= -->
+
+<main
+  id="quranPage"
+  class="content hidden">
+
+  <div id="quranSurahListView">
+
     <div class="section-head">
-      <h3>Panel Admin / Pengawas</h3>
-      <span id="totalUserCount">0 Pengguna</span>
-    </div>
-    <input id="searchUser" placeholder="🔍 Cari nama / username..." oninput="renderAdminUsers()" style="margin-bottom: 12px;">
-    <div id="adminUserList"></div>
-  </main>
 
-  <!-- PROFIL PAGE -->
-  <main id="profilePage" class="content hidden">
-    <div class="card profile-card">
-      <div class="avatar" id="userAvatar">👤</div>
-      <h2 id="profileName" style="margin:0 0 4px"></h2>
-      <div id="profileUser" style="font-size:12px;color:var(--muted)"></div>
-      <div class="stat-grid">
-        <div class="stat"><b id="statAttendance">0</b><small>Absensi</small></div>
-        <div class="stat"><b id="statPrayers">0</b><small>Sholat</small></div>
-        <div class="stat"><b id="statDays">0</b><small>Hari</small></div>
-      </div>
+      <h3>Al-Qur'an 30 Juz</h3>
+
+      <span>114 Surah</span>
+
     </div>
 
-    <div class="section-head"><h3>Pengingat & Alarm Adzan</h3></div>
-    <div class="card">
-      <div class="switch-row" style="display:flex;justify-content:space-between;align-items:center;">
-        <span style="font-weight:700;font-size:13px;">🔔 Aktifkan Pengingat Sholat</span>
-        <input type="checkbox" id="toggleAlarm" onchange="toggleAlarmSetting(this.checked)">
+    <input
+      id="searchSurah"
+      placeholder="🔍 Cari nama surah atau nomor..."
+      oninput="filterSurah()"
+      style="margin-bottom:12px;">
+
+    <div id="surahListContainer">
+
+      <div class="empty">
+        Memuat daftar surah...
       </div>
-      <div id="alarmSettingsBox" class="hidden" style="margin-top:10px;">
-        <button class="btn btn-light btn-sm" style="width:100%;margin-bottom:10px;" onclick="testAdzanSound()">🔊 Tes Suara Adzan</button>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Atur Waktu Pengingat Sholat:</div>
-        <div class="alarm-time-grid" style="display:grid;gap:8px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;"><label style="margin:0;">Subuh</label><input type="time" id="alarm_subuh" value="04:30" onchange="saveAlarmTimes()" style="width:auto;"></div>
-          <div style="display:flex;justify-content:space-between;align-items:center;"><label style="margin:0;">Dzuhur</label><input type="time" id="alarm_dzuhur" value="12:00" onchange="saveAlarmTimes()" style="width:auto;"></div>
-          <div style="display:flex;justify-content:space-between;align-items:center;"><label style="margin:0;">Ashar</label><input type="time" id="alarm_ashar" value="15:15" onchange="saveAlarmTimes()" style="width:auto;"></div>
-          <div style="display:flex;justify-content:space-between;align-items:center;"><label style="margin:0;">Maghrib</label><input type="time" id="alarm_maghrib" value="18:10" onchange="saveAlarmTimes()" style="width:auto;"></div>
-          <div style="display:flex;justify-content:space-between;align-items:center;"><label style="margin:0;">Isya</label><input type="time" id="alarm_isya" value="19:20" onchange="saveAlarmTimes()" style="width:auto;"></div>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="quranDetailView"
+    class="hidden">
+
+    <button
+      class="btn btn-light btn-sm"
+      onclick="backToSurahList()"
+      style="margin-bottom:12px;">
+      ← Kembali ke Daftar Surah
+    </button>
+
+    <div
+      class="greeting"
+      style="margin-bottom:14px;text-align:center;">
+
+      <h2
+        id="detailSurahName"
+        style="font-size:20px;">
+      </h2>
+
+      <p
+        id="detailSurahSub"
+        style="font-size:12px;opacity:.9;">
+      </p>
+
+    </div>
+
+    <div id="ayahListContainer">
+
+      <div class="empty">
+        Memuat ayat-ayat...
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- ================= RIWAYAT ADMIN ================= -->
+
+<main
+  id="historyPage"
+  class="content hidden">
+
+  <div class="section-head">
+
+    <h3>Riwayat Monitoring</h3>
+
+    <span>Semua data akun</span>
+
+  </div>
+
+  <div
+    class="card"
+    id="allHistoryList">
+
+    <div class="empty">
+      Belum ada riwayat.
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- ================= ADMIN ================= -->
+
+<main
+  id="adminPage"
+  class="content hidden">
+
+  <div class="section-head">
+
+    <h3>Panel Admin / Pengawas</h3>
+
+    <span id="totalUserCount">
+      0 Pengguna
+    </span>
+
+  </div>
+
+  <input
+    id="searchUser"
+    placeholder="🔍 Cari nama / username..."
+    oninput="renderAdminUsers()"
+    style="margin-bottom:12px;">
+
+  <div id="adminUserList"></div>
+
+</main>
+
+
+<!-- ================= PROFILE ================= -->
+
+<main
+  id="profilePage"
+  class="content hidden">
+
+  <div class="card profile-card">
+
+    <div
+      class="avatar"
+      id="userAvatar">
+      👤
+    </div>
+
+    <h2
+      id="profileName"
+      style="margin:0 0 4px">
+    </h2>
+
+    <div
+      id="profileUser"
+      style="font-size:12px;color:var(--muted)">
+    </div>
+
+    <div class="stat-grid">
+
+      <div class="stat">
+
+        <b id="statAttendance">0</b>
+
+        <small>Absensi</small>
+
+      </div>
+
+      <div class="stat">
+
+        <b id="statPrayers">0</b>
+
+        <small>Sholat</small>
+
+      </div>
+
+      <div class="stat">
+
+        <b id="statDays">0</b>
+
+        <small>Hari</small>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="section-head">
+
+    <h3>Pengingat & Alarm Adzan</h3>
+
+  </div>
+
+  <div class="card">
+
+    <div
+      class="switch-row"
+      style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+      ">
+
+      <span style="font-weight:700;font-size:13px;">
+        🔔 Aktifkan Pengingat Sholat
+      </span>
+
+      <input
+        type="checkbox"
+        id="toggleAlarm"
+        onchange="toggleAlarmSetting(this.checked)">
+
+    </div>
+
+    <div
+      id="alarmSettingsBox"
+      class="hidden"
+      style="margin-top:10px;">
+
+      <button
+        class="btn btn-light btn-sm"
+        style="width:100%;margin-bottom:10px;"
+        onclick="testAdzanSound()">
+        🔊 Tes Suara Adzan
+      </button>
+
+      <div
+        style="
+          font-size:11px;
+          color:var(--muted);
+          margin-bottom:8px;
+        ">
+        Atur Waktu Pengingat Sholat:
+      </div>
+
+      <div
+        class="alarm-time-grid"
+        style="display:grid;gap:8px;">
+
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <label style="margin:0;">Subuh</label>
+          <input
+            type="time"
+            id="alarm_subuh"
+            value="04:30"
+            onchange="saveAlarmTimes()"
+            style="width:auto;">
         </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <label style="margin:0;">Dzuhur</label>
+          <input
+            type="time"
+            id="alarm_dzuhur"
+            value="12:00"
+            onchange="saveAlarmTimes()"
+            style="width:auto;">
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <label style="margin:0;">Ashar</label>
+          <input
+            type="time"
+            id="alarm_ashar"
+            value="15:15"
+            onchange="saveAlarmTimes()"
+            style="width:auto;">
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <label style="margin:0;">Maghrib</label>
+          <input
+            type="time"
+            id="alarm_maghrib"
+            value="18:10"
+            onchange="saveAlarmTimes()"
+            style="width:auto;">
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <label style="margin:0;">Isya</label>
+          <input
+            type="time"
+            id="alarm_isya"
+            value="19:20"
+            onchange="saveAlarmTimes()"
+            style="width:auto;">
+        </div>
+
       </div>
+
     </div>
 
-    <div class="section-head"><h3>Pengaturan Akun</h3></div>
-    <div class="card">
-      <button class="btn btn-light" style="width:100%;margin-bottom:8px" onclick="exportData()">⬇️ Ekspor Data JSON</button>
-      <button class="btn btn-danger" style="width:100%" onclick="clearMyData()">🗑️ Hapus Data Saya</button>
-    </div>
-  </main>
+  </div>
 
-  <!-- BOTTOM NAVIGATION -->
-  <nav class="bottom-nav" id="bottomNav">
-    <button class="nav-btn active" id="navHome" onclick="goPage('home')"><span class="ico">⌂</span>Beranda</button>
-    <button class="nav-btn" id="navQuran" onclick="goPage('quran')"><span class="ico">📖</span>Al-Qur'an</button>
-    <button class="nav-btn" id="navHistory" onclick="goPage('history')"><span class="ico">◷</span>Riwayat</button>
-    <button class="nav-btn hidden" id="navAdmin" onclick="goPage('admin')"><span class="ico">🛡️</span>Admin</button>
-    <button class="nav-btn" id="navProfile" onclick="goPage('profile')"><span class="ico">♙</span>Profil</button>
-  </nav>
+
+  <div class="section-head">
+
+    <h3>Pengaturan Akun</h3>
+
+  </div>
+
+  <div class="card">
+
+    <button
+      class="btn btn-light"
+      style="width:100%;margin-bottom:8px"
+      onclick="exportData()">
+      ⬇️ Ekspor Data JSON
+    </button>
+
+    <button
+      class="btn btn-danger"
+      style="width:100%"
+      onclick="clearMyData()">
+      🗑️ Hapus Data Saya
+    </button>
+
+  </div>
+
+</main>
+
+
+<!-- ================= BOTTOM NAV ================= -->
+
+<nav
+  class="bottom-nav"
+  id="bottomNav">
+
+  <button
+    class="nav-btn active"
+    id="navHome"
+    onclick="goPage('home')">
+
+    <span class="ico">⌂</span>
+    Beranda
+
+  </button>
+
+  <button
+    class="nav-btn"
+    id="navQuran"
+    onclick="goPage('quran')">
+
+    <span class="ico">📖</span>
+    Al-Qur'an
+
+  </button>
+
+  <button
+    class="nav-btn"
+    id="navHistory"
+    onclick="goPage('history')">
+
+    <span class="ico">◷</span>
+    Riwayat
+
+  </button>
+
+  <button
+    class="nav-btn hidden"
+    id="navAdmin"
+    onclick="goPage('admin')">
+
+    <span class="ico">🛡️</span>
+    Admin
+
+  </button>
+
+  <button
+    class="nav-btn"
+    id="navProfile"
+    onclick="goPage('profile')">
+
+    <span class="ico">♙</span>
+    Profil
+
+  </button>
+
+</nav>
+
 </section>
 
-<!-- MODAL ALARM ADZAN -->
-<div id="adzanModal" class="modal">
-  <div class="modal-box" style="text-align:center;">
-    <div style="font-size:50px;">🕌</div>
-    <h2 style="margin:5px 0;color:var(--green);" id="adzanPrayerTitle">Waktu Sholat Tiba!</h2>
-    <p id="adzanPrayerMsg">Sudah waktunya menunaikan ibadah sholat.</p>
-    <button class="btn btn-primary" onclick="stopAdzanSound()">Matikan Alarm Adzan</button>
+
+<!-- ================= MODAL ALARM ================= -->
+
+<div
+  id="adzanModal"
+  class="modal">
+
+  <div
+    class="modal-box"
+    style="text-align:center;">
+
+    <div style="font-size:50px;">
+      🕌
+    </div>
+
+    <h2
+      style="margin:5px 0;color:var(--green);"
+      id="adzanPrayerTitle">
+      Waktu Sholat Tiba!
+    </h2>
+
+    <p id="adzanPrayerMsg">
+      Sudah waktunya menunaikan ibadah sholat.
+    </p>
+
+    <button
+      class="btn btn-primary"
+      onclick="stopAdzanSound()">
+      Matikan Alarm Adzan
+    </button>
+
   </div>
+
 </div>
 
-<!-- CAMERA MODAL -->
-<div id="cameraModal" class="modal">
+
+<!-- ================= CAMERA ================= -->
+
+<div
+  id="cameraModal"
+  class="modal">
+
   <div class="modal-box">
+
     <h3>Foto Absensi</h3>
-    <video id="video" autoplay playsinline style="width:100%;border-radius:18px;background:#111;max-height:330px;object-fit:cover"></video>
-    <div class="row" style="margin-top:10px">
-      <button class="btn btn-light" onclick="closeCamera()">Batal</button>
-      <button class="btn btn-primary" style="margin-top:0" onclick="takePhoto()">📸 Ambil Foto</button>
+
+    <video
+      id="video"
+      autoplay
+      playsinline
+      style="
+        width:100%;
+        border-radius:18px;
+        background:#111;
+        max-height:330px;
+        object-fit:cover;
+      ">
+    </video>
+
+    <div
+      class="row"
+      style="margin-top:10px">
+
+      <button
+        class="btn btn-light"
+        onclick="closeCamera()">
+        Batal
+      </button>
+
+      <button
+        class="btn btn-primary"
+        style="margin-top:0"
+        onclick="takePhoto()">
+        📸 Ambil Foto
+      </button>
+
     </div>
+
   </div>
+
 </div>
-<canvas id="canvas" class="hidden"></canvas>
-</div>
+
+<canvas
+  id="canvas"
+  class="hidden">
+</canvas>
+
 
 <script>
+
+/* =========================================================
+   DATA DASAR
+========================================================= */
+
 const PRAYERS = [
-  {id:'subuh',name:'Subuh',time:'04:00 - 05:30', defaultAlarm:'04:30'},
-  {id:'dzuhur',name:'Dzuhur',time:'11:30 - 14:00', defaultAlarm:'12:00'},
-  {id:'ashar',name:'Ashar',time:'15:00 - 17:30', defaultAlarm:'15:15'},
-  {id:'maghrib',name:'Maghrib',time:'18:00 - 19:30', defaultAlarm:'18:10'},
-  {id:'isya',name:'Isya',time:'19:00 - 04:00', defaultAlarm:'19:20'}
+
+  {
+    id:'subuh',
+    name:'Subuh',
+    time:'04:00 - 05:30',
+    defaultAlarm:'04:30'
+  },
+
+  {
+    id:'dzuhur',
+    name:'Dzuhur',
+    time:'11:30 - 14:00',
+    defaultAlarm:'12:00'
+  },
+
+  {
+    id:'ashar',
+    name:'Ashar',
+    time:'15:00 - 17:30',
+    defaultAlarm:'15:15'
+  },
+
+  {
+    id:'maghrib',
+    name:'Maghrib',
+    time:'18:00 - 19:30',
+    defaultAlarm:'18:10'
+  },
+
+  {
+    id:'isya',
+    name:'Isya',
+    time:'19:00 - 04:00',
+    defaultAlarm:'19:20'
+  }
+
 ];
+
 
 const INDO_QUOTES = [
-  {quote: "Maka sesungguhnya bersama kesulitan ada kemudahan.", author: "QS. Al-Insyirah: 5"},
-  {quote: "Niatkan setiap aktivitas untuk ibadah, maka lelahmu akan berbuah pahala.", author: "Kata Hikmah Islami"},
-  {quote: "Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.", author: "HR. Ahmad & Thabrani"},
-  {quote: "Jangan menjelaskan tentang dirimu kepada siapa pun, karena yang menyukaimu tidak butuh itu dan yang membencimu tidak akan percaya.", author: "Ali bin Abi Thalib"},
-  {quote: "Istiqamah itu berat, yang ringan mah makan kerupuk. Tapi balasan istiqamah adalah surga.", author: "Nasihat Bijak"},
-  {quote: "Ketika kamu merasa sendirian, ingatlah bahwa Allah selalu bersamamu.", author: "Kata Hikmah Islami"},
-  {quote: "Kerjakan sholat tepat waktu, niscaya Allah akan menepati janji-Nya melapangkan rezekimu.", author: "Mutiara Islam"}
+
+  {
+    quote:"Maka sesungguhnya bersama kesulitan ada kemudahan.",
+    author:"QS. Al-Insyirah: 5"
+  },
+
+  {
+    quote:"Niatkan setiap aktivitas untuk ibadah, maka lelahmu akan berbuah pahala.",
+    author:"Kata Hikmah Islami"
+  },
+
+  {
+    quote:"Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.",
+    author:"HR. Ahmad & Thabrani"
+  },
+
+  {
+    quote:"Ketika kamu merasa sendirian, ingatlah bahwa Allah selalu bersamamu.",
+    author:"Kata Hikmah Islami"
+  },
+
+  {
+    quote:"Istiqamah itu berat, tetapi hasilnya sangat berharga.",
+    author:"Nasihat Bijak"
+  },
+
+  {
+    quote:"Kerjakan sholat tepat waktu dan jangan menunda kebaikan.",
+    author:"Mutiara Islam"
+  }
+
 ];
 
-let currentUser = localStorage.getItem('monitoring_current_user') || '';
+
+/* =========================================================
+   VARIABLE
+========================================================= */
+
+let currentUser =
+  localStorage.getItem('monitoring_current_user') || '';
+
 let photoData = '';
 let cameraStream = null;
 let lastTriggeredMinute = '';
 let allSurahData = [];
 
-function initDefaultAdmin(){
-  const users = getUsers();
-  if(!users['admin']){
-    users['admin'] = {
-      name: 'Administrator',
-      password: 'admin',
-      role: 'admin',
-      createdAt: new Date().toISOString(),
-      prayers: {},
-      attendance: [],
-      alarmEnabled: true,
-      alarmTimes: { subuh:'04:30', dzuhur:'12:00', ashar:'15:15', maghrib:'18:10', isya:'19:20' }
-    };
-    saveUsers(users);
+
+/* =========================================================
+   DATABASE LOCAL
+========================================================= */
+
+function getUsers(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem('monitoring_users') || '{}'
+    );
+
+  }catch(e){
+
+    console.error(e);
+
+    return {};
+
   }
+
 }
 
-function getUsers(){return JSON.parse(localStorage.getItem('monitoring_users') || '{}')}
-function saveUsers(u){localStorage.setItem('monitoring_users',JSON.stringify(u))}
-function dateKey(d=new Date()){return d.toISOString().slice(0,10)}
-function formatDate(iso){
-  if(!iso) return '-';
-  const d=new Date(iso+'T00:00:00');
-  return d.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+function saveUsers(users){
+
+  localStorage.setItem(
+    'monitoring_users',
+    JSON.stringify(users)
+  );
+
 }
+
+
+/* =========================================================
+   ADMIN DEFAULT
+========================================================= */
+
+function initDefaultAdmin(){
+
+  const users = getUsers();
+
+  if(!users['admin']){
+
+    users['admin'] = {
+
+      name:'Administrator',
+
+      password:'admin',
+
+      role:'admin',
+
+      createdAt:new Date().toISOString(),
+
+      prayers:{},
+
+      attendance:[],
+
+      alarmEnabled:true,
+
+      alarmTimes:{
+        subuh:'04:30',
+        dzuhur:'12:00',
+        ashar:'15:15',
+        maghrib:'18:10',
+        isya:'19:20'
+      }
+
+    };
+
+    saveUsers(users);
+
+  }
+
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+function dateKey(d = new Date()){
+
+  const year = d.getFullYear();
+
+  const month = String(
+    d.getMonth()+1
+  ).padStart(2,'0');
+
+  const day = String(
+    d.getDate()
+  ).padStart(2,'0');
+
+  return `${year}-${month}-${day}`;
+
+}
+
+
+function formatDate(iso){
+
+  if(!iso) return '-';
+
+  const d =
+    new Date(iso + 'T00:00:00');
+
+  return d.toLocaleDateString(
+    'id-ID',
+    {
+      weekday:'long',
+      day:'numeric',
+      month:'long',
+      year:'numeric'
+    }
+  );
+
+}
+
+
+/* =========================================================
+   SECURITY TEXT
+========================================================= */
+
+function escapeHTML(text){
+
+  return String(text ?? '')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#039;');
+
+}
+
+
+/* =========================================================
+   AUTH
+========================================================= */
 
 function showAuth(type){
-  document.getElementById('loginForm').classList.toggle('hidden',type!=='login');
-  document.getElementById('registerForm').classList.toggle('hidden',type!=='register');
-  document.getElementById('tabLogin').classList.toggle('active',type==='login');
-  document.getElementById('tabRegister').classList.toggle('active',type==='register');
+
+  document
+    .getElementById('loginForm')
+    .classList
+    .toggle('hidden',type !== 'login');
+
+  document
+    .getElementById('registerForm')
+    .classList
+    .toggle('hidden',type !== 'register');
+
+  document
+    .getElementById('tabLogin')
+    .classList
+    .toggle('active',type === 'login');
+
+  document
+    .getElementById('tabRegister')
+    .classList
+    .toggle('active',type === 'register');
+
 }
-function msg(id,text,type='error'){document.getElementById(id).innerHTML=`<div class="${type}">${text}</div>`}
+
+
+function msg(id,text,type='error'){
+
+  const el =
+    document.getElementById(id);
+
+  if(!el) return;
+
+  el.innerHTML =
+    `<div class="${type}">${escapeHTML(text)}</div>`;
+
+}
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
 
 function register(e){
+
   e.preventDefault();
-  const name=document.getElementById('regName').value.trim();
-  const user=document.getElementById('regUser').value.trim().toLowerCase();
-  const pass=document.getElementById('regPass').value;
-  const pass2=document.getElementById('regPass2').value;
-  const users=getUsers();
-  if(users[user]) return msg('regMsg','Username sudah digunakan.');
-  if(pass!==pass2) return msg('regMsg','Konfirmasi password tidak sama.');
-  users[user]={
-    name,password:pass,role:'user',createdAt:new Date().toISOString(),prayers:{},attendance:[],
-    alarmEnabled: true,
-    alarmTimes: { subuh:'04:30', dzuhur:'12:00', ashar:'15:15', maghrib:'18:10', isya:'19:20' }
+
+  const name =
+    document
+      .getElementById('regName')
+      .value
+      .trim();
+
+  const user =
+    document
+      .getElementById('regUser')
+      .value
+      .trim()
+      .toLowerCase();
+
+  const pass =
+    document
+      .getElementById('regPass')
+      .value;
+
+  const pass2 =
+    document
+      .getElementById('regPass2')
+      .value;
+
+  const users = getUsers();
+
+
+  if(users[user]){
+
+    return msg(
+      'regMsg',
+      'Username sudah digunakan.'
+    );
+
+  }
+
+
+  if(pass !== pass2){
+
+    return msg(
+      'regMsg',
+      'Konfirmasi password tidak sama.'
+    );
+
+  }
+
+
+  users[user] = {
+
+    name:name,
+
+    password:pass,
+
+    role:'user',
+
+    createdAt:new Date().toISOString(),
+
+    prayers:{},
+
+    attendance:[],
+
+    alarmEnabled:true,
+
+    alarmTimes:{
+      subuh:'04:30',
+      dzuhur:'12:00',
+      ashar:'15:15',
+      maghrib:'18:10',
+      isya:'19:20'
+    }
+
   };
+
+
   saveUsers(users);
-  msg('regMsg','Akun berhasil dibuat. Silakan masuk.','success');
-  setTimeout(()=>showAuth('login'),700);
+
+
+  msg(
+    'regMsg',
+    'Akun berhasil dibuat. Silakan masuk.',
+    'success'
+  );
+
+
+  document
+    .getElementById('registerForm')
+    .reset();
+
+
+  setTimeout(
+    ()=>showAuth('login'),
+    700
+  );
+
 }
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
 
 function login(e){
+
   e.preventDefault();
-  const user=document.getElementById('loginUser').value.trim().toLowerCase();
-  const pass=document.getElementById('loginPass').value;
-  const users=getUsers();
-  if(!users[user] || users[user].password!==pass) return msg('loginMsg','Username atau password salah.');
-  currentUser=user;localStorage.setItem('monitoring_current_user',user);
+
+  initDefaultAdmin();
+
+  const user =
+    document
+      .getElementById('loginUser')
+      .value
+      .trim()
+      .toLowerCase();
+
+  const pass =
+    document
+      .getElementById('loginPass')
+      .value;
+
+  const users = getUsers();
+
+
+  if(
+    !users[user] ||
+    users[user].password !== pass
+  ){
+
+    return msg(
+      'loginMsg',
+      'Username atau password salah.'
+    );
+
+  }
+
+
+  currentUser = user;
+
+  localStorage.setItem(
+    'monitoring_current_user',
+    user
+  );
+
   startApp();
+
 }
 
-function logout(){
-  currentUser='';photoData='';
-  localStorage.removeItem('monitoring_current_user');
-  stopCamera();document.getElementById('mainScreen').classList.add('hidden');document.getElementById('authScreen').classList.remove('hidden');
+
+/* =========================================================
+   USER DATA
+========================================================= */
+
+function userData(){
+
+  const users = getUsers();
+
+  return users[currentUser];
+
 }
 
-function userData(){const u=getUsers();return u[currentUser];}
-function updateUser(data){const u=getUsers();u[currentUser]=data;saveUsers(u);}
+
+function updateUser(data){
+
+  const users = getUsers();
+
+  users[currentUser] = data;
+
+  saveUsers(users);
+
+}
+
+
+/* =========================================================
+   START APP
+========================================================= */
 
 function startApp(){
+
   initDefaultAdmin();
-  if(!currentUser || !userData()){return}
-  document.getElementById('authScreen').classList.add('hidden');
-  document.getElementById('mainScreen').classList.remove('hidden');
-  
+
+  if(!currentUser || !userData()){
+
+    return;
+
+  }
+
+
+  document
+    .getElementById('authScreen')
+    .classList
+    .add('hidden');
+
+  document
+    .getElementById('mainScreen')
+    .classList
+    .remove('hidden');
+
+
   const u = userData();
-  const isAdmin = u.role === 'admin' || currentUser === 'admin';
-  document.getElementById('navAdmin').classList.toggle('hidden', !isAdmin);
-  document.getElementById('bottomNav').classList.toggle('nav-admin', isAdmin);
+
+  const isAdmin =
+    u.role === 'admin' ||
+    currentUser === 'admin';
+
+
+  document
+    .getElementById('navAdmin')
+    .classList
+    .toggle('hidden',!isAdmin);
+
+
+  document
+    .getElementById('bottomNav')
+    .classList
+    .toggle('nav-admin',isAdmin);
+
 
   renderAll();
+
+  renderAllHistory();
+
+  renderAdminUsers();
+
   startAlarmLoop();
+
   fetchSurahList();
+
   getDailyIndoQuote();
+
 }
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logout(){
+
+  currentUser='';
+
+  photoData='';
+
+  localStorage.removeItem(
+    'monitoring_current_user'
+  );
+
+  stopCamera();
+
+  document
+    .getElementById('mainScreen')
+    .classList
+    .add('hidden');
+
+  document
+    .getElementById('authScreen')
+    .classList
+    .remove('hidden');
+
+}
+
+
+/* =========================================================
+   NAVIGASI
+========================================================= */
 
 function goPage(pageId){
-  const pages = ['home', 'quran', 'history', 'admin', 'profile'];
-  pages.forEach(p => {
-    const el = document.getElementById(p + 'Page');
-    if(el) el.classList.add('hidden');
-    const navEl = document.getElementById('nav' + p.charAt(0).toUpperCase() + p.slice(1));
-    if(navEl) navEl.classList.remove('active');
+
+  const pages = [
+    'home',
+    'quran',
+    'history',
+    'admin',
+    'profile'
+  ];
+
+
+  pages.forEach(p=>{
+
+    const el =
+      document.getElementById(
+        p + 'Page'
+      );
+
+    if(el){
+      el.classList.add('hidden');
+    }
+
+
+    const navEl =
+      document.getElementById(
+        'nav' +
+        p.charAt(0).toUpperCase() +
+        p.slice(1)
+      );
+
+    if(navEl){
+      navEl.classList.remove('active');
+    }
+
   });
 
-  const target = document.getElementById(pageId + 'Page');
-  if(target) target.classList.remove('hidden');
-  const targetNav = document.getElementById('nav' + pageId.charAt(0).toUpperCase() + pageId.slice(1));
-  if(targetNav) targetNav.classList.add('active');
+
+  const target =
+    document.getElementById(
+      pageId + 'Page'
+    );
+
+  if(target){
+
+    target.classList.remove('hidden');
+
+  }
+
+
+  const targetNav =
+    document.getElementById(
+      'nav' +
+      pageId.charAt(0).toUpperCase() +
+      pageId.slice(1)
+    );
+
+  if(targetNav){
+
+    targetNav.classList.add('active');
+
+  }
+
+
+  if(pageId === 'history'){
+
+    renderAllHistory();
+
+  }
+
+
+  if(pageId === 'admin'){
+
+    const u = userData();
+
+    if(u && u.role === 'admin'){
+
+      renderAdminUsers();
+
+    }
+
+  }
+
 }
+
+
+/* =========================================================
+   RENDER SEMUA
+========================================================= */
 
 function renderAll(){
-  const u=userData(); if(!u)return;
-  document.getElementById('welcomeName').textContent=u.name + (u.role==='admin'?' (Admin)':'');
-  document.getElementById('profileName').textContent=u.name;
-  document.getElementById('profileUser').textContent='@'+currentUser + (u.role==='admin'?' • Administrator':'');
-  document.getElementById('userAvatar').textContent=u.role==='admin'?'🛡️':'👤';
-  document.getElementById('todayDate').textContent=formatDate(dateKey());
-  document.getElementById('headerSub').textContent='Halo, '+u.name;
-  renderPrayers();renderHistory();renderProfile();
+
+  const u = userData();
+
+  if(!u) return;
+
+
+  document
+    .getElementById('welcomeName')
+    .textContent =
+      u.name +
+      (u.role === 'admin'
+        ? ' (Admin)'
+        : '');
+
+
+  document
+    .getElementById('profileName')
+    .textContent =
+      u.name;
+
+
+  document
+    .getElementById('profileUser')
+    .textContent =
+      '@' +
+      currentUser +
+      (u.role === 'admin'
+        ? ' • Administrator'
+        : '');
+
+
+  document
+    .getElementById('userAvatar')
+    .textContent =
+      u.role === 'admin'
+        ? '🛡️'
+        : '👤';
+
+
+  document
+    .getElementById('todayDate')
+    .textContent =
+      formatDate(dateKey());
+
+
+  document
+    .getElementById('headerSub')
+    .textContent =
+      'Halo, ' + u.name;
+
+
+  renderPrayers();
+
+  renderHistory();
+
+  renderProfile();
+
+
+  if(u.role === 'admin'){
+
+    renderAllHistory();
+
+    renderAdminUsers();
+
+  }
+
 }
+
+
+/* =========================================================
+   SHOLAT
+========================================================= */
 
 function renderPrayers(){
-  const u=userData(),key=dateKey();
-  if(!u.prayers[key])u.prayers[key]={};
-  const list=document.getElementById('prayerList');
-  list.innerHTML=PRAYERS.map(p=>{
-    const checked=!!u.prayers[key][p.id];
-    return `<div class="prayer ${checked?'checked':''}" onclick="togglePrayer('${p.id}')">
-      <div class="check">${checked?'✓':''}</div>
-      <div><div class="name">${p.name}</div><div class="time">${p.time}</div></div>
-      <div class="status">${checked?'Sudah':'Belum'}</div>
-    </div>`
-  }).join('');
-  const count=PRAYERS.filter(p=>u.prayers[key][p.id]).length;
-  const pct=count*20;
-  document.getElementById('progressRing').style.setProperty('--p',pct+'%');
-  document.getElementById('progressNum').textContent=pct+'%';
-  document.getElementById('progressText').textContent=count+'/5 sholat';
-  document.getElementById('progressTitle').textContent=count===5?'Alhamdulillah, 5 waktu selesai!':count===0?'Belum ada sholat yang diceklis':`${count} dari 5 sholat sudah diceklis`;
+
+  const u = userData();
+
+  const key = dateKey();
+
+
+  if(!u.prayers[key]){
+
+    u.prayers[key] = {};
+
+    updateUser(u);
+
+  }
+
+
+  const list =
+    document.getElementById(
+      'prayerList'
+    );
+
+
+  list.innerHTML =
+    PRAYERS.map(p=>{
+
+      const checked =
+        !!u.prayers[key][p.id];
+
+
+      return `
+
+        <div
+          class="prayer ${checked ? 'checked' : ''}"
+          onclick="togglePrayer('${p.id}')">
+
+          <div class="check">
+            ${checked ? '✓' : ''}
+          </div>
+
+          <div>
+
+            <div class="name">
+              ${p.name}
+            </div>
+
+            <div class="time">
+              ${p.time}
+            </div>
+
+          </div>
+
+          <div class="status">
+            ${checked ? 'Sudah' : 'Belum'}
+          </div>
+
+        </div>
+
+      `;
+
+    }).join('');
+
+
+  const count =
+    PRAYERS.filter(
+      p=>u.prayers[key][p.id]
+    ).length;
+
+
+  const pct =
+    count * 20;
+
+
+  document
+    .getElementById('progressRing')
+    .style
+    .setProperty(
+      '--p',
+      pct + '%'
+    );
+
+
+  document
+    .getElementById('progressNum')
+    .textContent =
+      pct + '%';
+
+
+  document
+    .getElementById('progressText')
+    .textContent =
+      count + '/5 sholat';
+
+
+  document
+    .getElementById('progressTitle')
+    .textContent =
+      count === 5
+        ? 'Alhamdulillah, 5 waktu selesai!'
+        : count === 0
+          ? 'Belum ada sholat yang diceklis'
+          : `${count} dari 5 sholat sudah diceklis`;
+
 }
+
 
 function togglePrayer(id){
-  const u=userData(),key=dateKey();
-  if(!u.prayers[key])u.prayers[key]={};
-  u.prayers[key][id]=!u.prayers[key][id];
-  updateUser(u);renderAll();
+
+  const u = userData();
+
+  const key = dateKey();
+
+
+  if(!u.prayers[key]){
+
+    u.prayers[key] = {};
+
+  }
+
+
+  u.prayers[key][id] =
+    !u.prayers[key][id];
+
+
+  updateUser(u);
+
+  renderAll();
+
 }
 
-/* KATA MOTIVASI HARIAN BAHASA INDONESIA */
-function getDailyIndoQuote(isRandom = false){
-  let index = 0;
+
+/* =========================================================
+   MOTIVASI
+========================================================= */
+
+function getDailyIndoQuote(isRandom=false){
+
+  let index=0;
+
+
   if(isRandom){
-    index = Math.floor(Math.random() * INDO_QUOTES.length);
-  } else {
-    const today = new Date();
-    index = (today.getDate() + today.getMonth()) % INDO_QUOTES.length;
+
+    index =
+      Math.floor(
+        Math.random() *
+        INDO_QUOTES.length
+      );
+
+  }else{
+
+    const today =
+      new Date();
+
+    index =
+      (
+        today.getDate() +
+        today.getMonth()
+      ) %
+      INDO_QUOTES.length;
+
   }
-  const item = INDO_QUOTES[index];
-  document.getElementById('quoteText').textContent = `"${item.quote}"`;
-  document.getElementById('quoteAuthor').textContent = `- ${item.author}`;
+
+
+  const item =
+    INDO_QUOTES[index];
+
+
+  document
+    .getElementById('quoteText')
+    .textContent =
+      `"${item.quote}"`;
+
+
+  document
+    .getElementById('quoteAuthor')
+    .textContent =
+      `- ${item.author}`;
+
 }
 
-/* FITUR AL-QURAN 30 JUZ API */
+
+/* =========================================================
+   QURAN
+========================================================= */
+
 async function fetchSurahList(){
+
   try{
-    const res = await fetch('https://equran.id/api/v2/surat');
-    const json = await res.json();
+
+    const res =
+      await fetch(
+        'https://equran.id/api/v2/surat'
+      );
+
+    const json =
+      await res.json();
+
+
     if(json && json.data){
-      allSurahData = json.data;
-      renderSurahList(allSurahData);
+
+      allSurahData =
+        json.data;
+
+      renderSurahList(
+        allSurahData
+      );
+
     }
+
   }catch(e){
-    document.getElementById('surahListContainer').innerHTML = '<div class="empty">Gagal memuat Al-Qur\'an. Pastikan Anda terhubung ke internet.</div>';
+
+    document
+      .getElementById('surahListContainer')
+      .innerHTML =
+        `
+        <div class="empty">
+          Gagal memuat Al-Qur'an.
+          Pastikan Anda terhubung
+          ke internet.
+        </div>
+        `;
+
   }
+
 }
+
 
 function renderSurahList(data){
-  const container = document.getElementById('surahListContainer');
+
+  const container =
+    document.getElementById(
+      'surahListContainer'
+    );
+
+
   if(!data || data.length === 0){
-    container.innerHTML = '<div class="empty">Surah tidak ditemukan.</div>';
+
+    container.innerHTML =
+      '<div class="empty">Surah tidak ditemukan.</div>';
+
     return;
+
   }
-  container.innerHTML = data.map(s => `
-    <div class="surah-card" onclick="openSurahDetail(${s.nomor})">
-      <div class="surah-num">${s.nomor}</div>
-      <div class="surah-info">
-        <b>${s.namaLatin}</b>
-        <small>${s.arti} • ${s.jumlahAyat} Ayat (${s.tempatTurun})</small>
+
+
+  container.innerHTML =
+    data.map(s=>`
+
+      <div
+        class="surah-card"
+        onclick="openSurahDetail(${s.nomor})">
+
+        <div class="surah-num">
+          ${s.nomor}
+        </div>
+
+        <div class="surah-info">
+
+          <b>
+            ${escapeHTML(s.namaLatin)}
+          </b>
+
+          <small>
+            ${escapeHTML(s.arti)}
+            •
+            ${s.jumlahAyat}
+            Ayat
+            (${escapeHTML(s.tempatTurun)})
+          </small>
+
+        </div>
+
+        <div class="surah-arabic">
+          ${escapeHTML(s.nama)}
+        </div>
+
       </div>
-      <div class="surah-arabic">${s.nama}</div>
-    </div>
-  `).join('');
+
+    `).join('');
+
 }
+
 
 function filterSurah(){
-  const query = (document.getElementById('searchSurah').value || '').toLowerCase();
-  const filtered = allSurahData.filter(s => 
-    s.namaLatin.toLowerCase().includes(query) || 
-    s.arti.toLowerCase().includes(query) ||
-    String(s.nomor).includes(query)
-  );
+
+  const query =
+    (
+      document
+        .getElementById('searchSurah')
+        .value || ''
+    )
+    .toLowerCase();
+
+
+  const filtered =
+    allSurahData.filter(s=>
+
+      s.namaLatin
+        .toLowerCase()
+        .includes(query)
+
+      ||
+
+      s.arti
+        .toLowerCase()
+        .includes(query)
+
+      ||
+
+      String(s.nomor)
+        .includes(query)
+
+    );
+
+
   renderSurahList(filtered);
+
 }
+
 
 async function openSurahDetail(nomorSurah){
-  document.getElementById('quranSurahListView').classList.add('hidden');
-  document.getElementById('quranDetailView').classList.remove('hidden');
-  const ayahContainer = document.getElementById('ayahListContainer');
-  ayahContainer.innerHTML = '<div class="empty">Memuat ayat-ayat...</div>';
+
+  document
+    .getElementById('quranSurahListView')
+    .classList
+    .add('hidden');
+
+
+  document
+    .getElementById('quranDetailView')
+    .classList
+    .remove('hidden');
+
+
+  const ayahContainer =
+    document.getElementById(
+      'ayahListContainer'
+    );
+
+
+  ayahContainer.innerHTML =
+    '<div class="empty">Memuat ayat-ayat...</div>';
+
 
   try{
-    const res = await fetch(`https://equran.id/api/v2/surat/${nomorSurah}`);
-    const json = await res.json();
+
+    const res =
+      await fetch(
+        `https://equran.id/api/v2/surat/${nomorSurah}`
+      );
+
+
+    const json =
+      await res.json();
+
+
     if(json && json.data){
+
       const s = json.data;
-      document.getElementById('detailSurahName').textContent = `${s.nomor}. ${s.namaLatin} (${s.nama})`;
-      document.getElementById('detailSurahSub').textContent = `${s.arti} • ${s.jumlahAyat} Ayat • ${s.tempatTurun}`;
-      
-      let html = '';
+
+
+      document
+        .getElementById('detailSurahName')
+        .textContent =
+          `${s.nomor}. ${s.namaLatin} (${s.nama})`;
+
+
+      document
+        .getElementById('detailSurahSub')
+        .textContent =
+          `${s.arti} • ${s.jumlahAyat} Ayat • ${s.tempatTurun}`;
+
+
+      let html='';
+
+
       if(s.nomor !== 1 && s.nomor !== 9){
-        html += `<div style="text-align:center;font-size:22px;margin-bottom:18px;color:var(--green2);font-weight:700;">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>`;
+
+        html += `
+
+          <div
+            style="
+              text-align:center;
+              font-size:22px;
+              margin-bottom:18px;
+              color:var(--green2);
+              font-weight:700;
+            ">
+
+            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+          </div>
+
+        `;
+
       }
 
-      html += s.ayat.map(a => `
-        <div class="ayah-box">
-          <div class="ayah-header">
-            <span class="ayah-num-badge">Ayat ${a.nomorAyat}</span>
-          </div>
-          <div class="ayah-arabic">${a.teksArab}</div>
-          <div class="ayah-translation">${a.teksIndonesia}</div>
-        </div>
-      `).join('');
 
-      ayahContainer.innerHTML = html;
+      html +=
+        s.ayat.map(a=>`
+
+          <div class="ayah-box">
+
+            <div class="ayah-header">
+
+              <span class="ayah-num-badge">
+                Ayat ${a.nomorAyat}
+              </span>
+
+            </div>
+
+            <div class="ayah-arabic">
+              ${a.teksArab}
+            </div>
+
+            <div class="ayah-translation">
+              ${escapeHTML(a.teksIndonesia)}
+            </div>
+
+          </div>
+
+        `).join('');
+
+
+      ayahContainer.innerHTML =
+        html;
+
+
       window.scrollTo(0,0);
+
     }
+
   }catch(e){
-    ayahContainer.innerHTML = '<div class="empty">Gagal memuat ayat. Periksa koneksi internet Anda.</div>';
+
+    ayahContainer.innerHTML =
+      `
+      <div class="empty">
+        Gagal memuat ayat.
+        Periksa koneksi internet Anda.
+      </div>
+      `;
+
   }
+
 }
+
 
 function backToSurahList(){
-  document.getElementById('quranDetailView').classList.add('hidden');
-  document.getElementById('quranSurahListView').classList.remove('hidden');
+
+  document
+    .getElementById('quranDetailView')
+    .classList
+    .add('hidden');
+
+
+  document
+    .getElementById('quranSurahListView')
+    .classList
+    .remove('hidden');
+
 }
 
-/* KAMERA & ABSENSI */
+
+/* =========================================================
+   KAMERA
+========================================================= */
+
 function openCamera(){
-  document.getElementById('cameraModal').classList.add('show');
-  navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}}).then(stream => {
-    cameraStream = stream;
-    document.getElementById('video').srcObject = stream;
-  }).catch(err => {
-    alert("Tidak dapat mengakses kamera.");
+
+  document
+    .getElementById('cameraModal')
+    .classList
+    .add('show');
+
+
+  if(
+    !navigator.mediaDevices ||
+    !navigator.mediaDevices.getUserMedia
+  ){
+
+    alert(
+      'Kamera tidak didukung oleh browser ini.'
+    );
+
     closeCamera();
-  });
+
+    return;
+
+  }
+
+
+  navigator.mediaDevices
+    .getUserMedia({
+      video:{
+        facingMode:'user'
+      }
+    })
+    .then(stream=>{
+
+      cameraStream =
+        stream;
+
+      document
+        .getElementById('video')
+        .srcObject =
+        stream;
+
+    })
+    .catch(err=>{
+
+      console.error(err);
+
+      alert(
+        'Tidak dapat mengakses kamera. Pastikan izin kamera diberikan.'
+      );
+
+      closeCamera();
+
+    });
+
 }
+
 
 function closeCamera(){
-  if(cameraStream){cameraStream.getTracks().forEach(t => t.stop());}
-  document.getElementById('cameraModal').classList.remove('show');
+
+  stopCamera();
+
+  document
+    .getElementById('cameraModal')
+    .classList
+    .remove('show');
+
 }
+
+
+function stopCamera(){
+
+  if(cameraStream){
+
+    cameraStream
+      .getTracks()
+      .forEach(
+        track=>track.stop()
+      );
+
+    cameraStream=null;
+
+  }
+
+}
+
 
 function takePhoto(){
-  const video = document.getElementById('video');
-  const canvas = document.getElementById('canvas');
-  canvas.width = video.videoWidth; canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  photoData = canvas.toDataURL('image/jpeg', 0.7);
-  document.getElementById('photoBox').innerHTML = `<img src="${photoData}">`;
+
+  const video =
+    document.getElementById('video');
+
+  const canvas =
+    document.getElementById('canvas');
+
+
+  if(
+    !video.videoWidth ||
+    !video.videoHeight
+  ){
+
+    alert(
+      'Kamera belum siap.'
+    );
+
+    return;
+
+  }
+
+
+  canvas.width =
+    video.videoWidth;
+
+  canvas.height =
+    video.videoHeight;
+
+
+  canvas
+    .getContext('2d')
+    .drawImage(
+      video,
+      0,
+      0
+    );
+
+
+  photoData =
+    canvas.toDataURL(
+      'image/jpeg',
+      0.7
+    );
+
+
+  document
+    .getElementById('photoBox')
+    .innerHTML =
+      `<img src="${photoData}">`;
+
+
   closeCamera();
+
 }
+
 
 function loadPhoto(e){
-  const file = e.target.files[0];
+
+  const file =
+    e.target.files[0];
+
+
   if(!file) return;
-  const reader = new FileReader();
-  reader.onload = function(evt){
-    photoData = evt.target.result;
-    document.getElementById('photoBox').innerHTML = `<img src="${photoData}">`;
+
+
+  if(!file.type.startsWith('image/')){
+
+    alert(
+      'File yang dipilih harus berupa gambar.'
+    );
+
+    return;
+
   }
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload =
+    function(evt){
+
+      photoData =
+        evt.target.result;
+
+
+      document
+        .getElementById('photoBox')
+        .innerHTML =
+          `<img src="${photoData}">`;
+
+    };
+
+
   reader.readAsDataURL(file);
+
 }
+
+
+/* =========================================================
+   ABSENSI USER
+========================================================= */
 
 function saveAttendance(){
-  if(!photoData){ return msg('attMsg', 'Silakan ambil foto bukti terlebih dahulu.'); }
-  const u = userData();
-  const key = dateKey();
-  if(!u.attendance) u.attendance = [];
-  u.attendance.unshift({ date: key, time: new Date().toLocaleTimeString('id-ID'), photo: photoData });
+
+  if(!photoData){
+
+    return msg(
+      'attMsg',
+      'Silakan ambil foto bukti terlebih dahulu.'
+    );
+
+  }
+
+
+  const u =
+    userData();
+
+  const key =
+    dateKey();
+
+
+  if(!u.attendance){
+
+    u.attendance=[];
+
+  }
+
+
+  const alreadyAttendance =
+    u.attendance.find(
+      item=>item.date === key
+    );
+
+
+  if(alreadyAttendance){
+
+    return msg(
+      'attMsg',
+      'Anda sudah melakukan absensi hari ini.'
+    );
+
+  }
+
+
+  u.attendance.unshift({
+
+    date:key,
+
+    time:new Date()
+      .toLocaleTimeString(
+        'id-ID'
+      ),
+
+    photo:photoData
+
+  });
+
+
   updateUser(u);
-  msg('attMsg', 'Absensi berhasil disimpan!', 'success');
+
+
+  msg(
+    'attMsg',
+    'Absensi berhasil disimpan!',
+    'success'
+  );
+
+
   renderHistory();
+
+  renderAllHistory();
+
+  renderAdminUsers();
+
+
+  document
+    .getElementById('historyCount')
+    .textContent =
+      `${u.attendance.length} data`;
+
+
+  photoData='';
+
 }
+
+
+/* =========================================================
+   RIWAYAT USER
+========================================================= */
 
 function renderHistory(){
-  const u = userData();
-  const container = document.getElementById('historyList');
-  if(!u.attendance || u.attendance.length === 0){
-    container.innerHTML = '<div class="empty">Belum ada riwayat absensi</div>';
-    return;
-  }
-  container.innerHTML = u.attendance.slice(0,5).map(item => `
-    <div class="history-item">
-      <img src="${item.photo}" class="thumb">
-      <div class="h-info">
-        <b>${formatDate(item.date)}</b>
-        <small>Pukul ${item.time}</small>
+
+  const u =
+    userData();
+
+
+  const container =
+    document.getElementById(
+      'historyList'
+    );
+
+
+  const count =
+    (u.attendance || [])
+      .length;
+
+
+  document
+    .getElementById('historyCount')
+    .textContent =
+      `${count} data`;
+
+
+  if(
+    !u.attendance ||
+    u.attendance.length === 0
+  ){
+
+    container.innerHTML =
+      `
+      <div class="empty">
+        Belum ada riwayat absensi
       </div>
-      <span class="badge">Hadir</span>
-    </div>
-  `).join('');
+      `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    u.attendance.map(item=>`
+
+      <div class="history-item">
+
+        ${
+          item.photo
+
+          ?
+
+          `<img
+            src="${item.photo}"
+            class="thumb"
+            alt="Foto absensi">`
+
+          :
+
+          `<div
+            class="thumb"
+            style="
+              display:grid;
+              place-items:center;
+            ">
+            📷
+          </div>`
+        }
+
+        <div class="h-info">
+
+          <b>
+            ${formatDate(item.date)}
+          </b>
+
+          <small>
+            Pukul ${escapeHTML(item.time || '-')}
+          </small>
+
+        </div>
+
+        <span class="badge">
+          Hadir
+        </span>
+
+      </div>
+
+    `).join('');
+
 }
+
+
+/* =========================================================
+   RIWAYAT SEMUA AKUN
+========================================================= */
+
+function renderAllHistory(){
+
+  const container =
+    document.getElementById(
+      'allHistoryList'
+    );
+
+
+  if(!container) return;
+
+
+  const users =
+    getUsers();
+
+
+  let allData=[];
+
+
+  Object.keys(users)
+    .forEach(username=>{
+
+      const user =
+        users[username];
+
+
+      if(
+        !user.attendance ||
+        !Array.isArray(user.attendance)
+      ){
+
+        return;
+
+      }
+
+
+      user.attendance
+        .forEach(item=>{
+
+          allData.push({
+
+            username:username,
+
+            name:user.name,
+
+            date:item.date,
+
+            time:item.time,
+
+            photo:item.photo
+
+          });
+
+        });
+
+    });
+
+
+  allData.sort((a,b)=>{
+
+    const dateA =
+      new Date(
+        `${a.date}T${a.time || '00:00:00'}`
+      );
+
+    const dateB =
+      new Date(
+        `${b.date}T${b.time || '00:00:00'}`
+      );
+
+    return dateB-dateA;
+
+  });
+
+
+  if(allData.length === 0){
+
+    container.innerHTML =
+      `
+      <div class="empty">
+        Belum ada riwayat absensi
+        dari pengguna.
+      </div>
+      `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    allData.map(item=>`
+
+      <div class="history-item">
+
+        ${
+          item.photo
+
+          ?
+
+          `<img
+            src="${item.photo}"
+            class="thumb"
+            alt="Foto absensi">`
+
+          :
+
+          `<div
+            class="thumb"
+            style="
+              display:grid;
+              place-items:center;
+            ">
+            📷
+          </div>`
+        }
+
+        <div class="h-info">
+
+          <b>
+            ${escapeHTML(item.name)}
+          </b>
+
+          <small>
+            @${escapeHTML(item.username)}
+          </small>
+
+          <small>
+            ${formatDate(item.date)}
+            •
+            ${escapeHTML(item.time || '-')}
+          </small>
+
+        </div>
+
+        <span class="badge">
+          Hadir
+        </span>
+
+      </div>
+
+    `).join('');
+
+}
+
+
+/* =========================================================
+   ADMIN USERS
+========================================================= */
+
+function renderAdminUsers(){
+
+  const container =
+    document.getElementById(
+      'adminUserList'
+    );
+
+
+  const countEl =
+    document.getElementById(
+      'totalUserCount'
+    );
+
+
+  if(!container) return;
+
+
+  const current =
+    userData();
+
+
+  if(
+    !current ||
+    current.role !== 'admin'
+  ){
+
+    container.innerHTML =
+      `
+      <div class="card empty">
+        Akses hanya untuk admin.
+      </div>
+      `;
+
+    return;
+
+  }
+
+
+  const users =
+    getUsers();
+
+
+  const searchInput =
+    document.getElementById(
+      'searchUser'
+    );
+
+
+  const keyword =
+    searchInput
+      ? searchInput.value
+          .trim()
+          .toLowerCase()
+      : '';
+
+
+  const userList =
+    Object.keys(users)
+
+      .filter(
+        username =>
+          users[username].role !== 'admin'
+      )
+
+      .map(username=>({
+
+        username,
+
+        ...users[username]
+
+      }))
+
+      .filter(user=>{
+
+        if(!keyword)
+          return true;
+
+
+        return (
+
+          String(user.name || '')
+            .toLowerCase()
+            .includes(keyword)
+
+          ||
+
+          user.username
+            .toLowerCase()
+            .includes(keyword)
+
+        );
+
+      });
+
+
+  countEl.textContent =
+    `${userList.length} Pengguna`;
+
+
+  if(userList.length === 0){
+
+    container.innerHTML =
+      `
+      <div class="card empty">
+        Belum ada pengguna yang terdaftar.
+      </div>
+      `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    userList.map(user=>{
+
+      const today =
+        dateKey();
+
+
+      const attendanceToday =
+        (user.attendance || [])
+          .find(
+            item =>
+              item.date === today
+          );
+
+
+      const attendanceStatus =
+        attendanceToday
+
+        ?
+
+        `
+        <span class="badge">
+          ✓ Sudah Absen
+        </span>
+        `
+
+        :
+
+        `
+        <span
+          class="badge"
+          style="
+            background:#fff0f1;
+            color:#dc3545;
+          ">
+          ✕ Belum Absen
+        </span>
+        `;
+
+
+      let prayerCount=0;
+
+
+      if(
+        user.prayers &&
+        user.prayers[today]
+      ){
+
+        prayerCount =
+          Object.values(
+            user.prayers[today]
+          )
+          .filter(Boolean)
+          .length;
+
+      }
+
+
+      const totalAttendance =
+        (user.attendance || [])
+          .length;
+
+
+      const registeredDate =
+        user.createdAt
+          ? user.createdAt
+              .slice(0,10)
+          : null;
+
+
+      return `
+
+        <div
+          class="card"
+          style="margin-bottom:12px;">
+
+          <div
+            style="
+              display:flex;
+              align-items:center;
+              gap:12px;
+              margin-bottom:12px;
+            ">
+
+            <div
+              class="avatar"
+              style="
+                width:50px;
+                height:50px;
+                margin:0;
+                border-radius:15px;
+                font-size:22px;
+              ">
+              👤
+            </div>
+
+
+            <div style="flex:1;">
+
+              <b style="font-size:14px;">
+                ${escapeHTML(user.name)}
+              </b>
+
+              <small
+                style="
+                  display:block;
+                  color:var(--muted);
+                  margin-top:3px;
+                ">
+                @${escapeHTML(user.username)}
+              </small>
+
+            </div>
+
+            ${attendanceStatus}
+
+          </div>
+
+
+          <div class="stat-grid">
+
+            <div class="stat">
+
+              <b>
+                ${totalAttendance}
+              </b>
+
+              <small>
+                Total Absensi
+              </small>
+
+            </div>
+
+
+            <div class="stat">
+
+              <b>
+                ${prayerCount}/5
+              </b>
+
+              <small>
+                Sholat Hari Ini
+              </small>
+
+            </div>
+
+
+            <div class="stat">
+
+              <b
+                style="
+                  font-size:11px;
+                ">
+                ${formatDate(registeredDate)}
+              </b>
+
+              <small>
+                Tanggal Daftar
+              </small>
+
+            </div>
+
+          </div>
+
+
+          ${
+            attendanceToday
+
+            ?
+
+            `
+            <button
+              class="btn btn-light"
+              style="
+                width:100%;
+                margin-top:10px;
+              "
+              onclick="viewAttendancePhoto(
+                '${escapeHTML(user.name)}',
+                '${attendanceToday.photo || ''}'
+              )">
+
+              📷 Lihat Foto Absensi
+
+            </button>
+            `
+
+            :
+
+            ''
+          }
+
+        </div>
+
+      `;
+
+    }).join('');
+
+}
+
+
+/* =========================================================
+   FOTO ABSENSI ADMIN
+========================================================= */
+
+function viewAttendancePhoto(name,photo){
+
+  if(!photo){
+
+    alert(
+      'Foto absensi tidak tersedia.'
+    );
+
+    return;
+
+  }
+
+
+  const modal =
+    document.getElementById(
+      'cameraModal'
+    );
+
+
+  const box =
+    modal.querySelector(
+      '.modal-box'
+    );
+
+
+  box.innerHTML =
+    `
+
+    <h3>
+      Foto Absensi
+    </h3>
+
+    <p
+      style="
+        font-size:12px;
+        color:var(--muted);
+      ">
+
+      ${escapeHTML(name)}
+
+    </p>
+
+
+    <img
+      src="${photo}"
+      style="
+        width:100%;
+        max-height:400px;
+        object-fit:contain;
+        border-radius:18px;
+        background:#111;
+      ">
+
+
+    <button
+      class="btn btn-light"
+      style="
+        width:100%;
+        margin-top:12px;
+      "
+      onclick="closeAttendancePhoto()">
+
+      Tutup
+
+    </button>
+
+    `;
+
+
+  modal
+    .classList
+    .add('show');
+
+}
+
+
+function closeAttendancePhoto(){
+
+  const modal =
+    document.getElementById(
+      'cameraModal'
+    );
+
+
+  modal.innerHTML =
+    `
+
+    <div class="modal-box">
+
+      <h3>
+        Foto Absensi
+      </h3>
+
+      <video
+        id="video"
+        autoplay
+        playsinline
+        style="
+          width:100%;
+          border-radius:18px;
+          background:#111;
+          max-height:330px;
+          object-fit:cover;
+        ">
+      </video>
+
+      <div
+        class="row"
+        style="margin-top:10px">
+
+        <button
+          class="btn btn-light"
+          onclick="closeCamera()">
+          Batal
+        </button>
+
+        <button
+          class="btn btn-primary"
+          style="margin-top:0"
+          onclick="takePhoto()">
+          📸 Ambil Foto
+        </button>
+
+      </div>
+
+    </div>
+
+    `;
+
+
+  modal
+    .classList
+    .remove('show');
+
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
 
 function renderProfile(){
-  const u = userData();
-  document.getElementById('statAttendance').textContent = (u.attendance || []).length;
-  let totalPrayers = 0;
+
+  const u =
+    userData();
+
+
+  document
+    .getElementById('statAttendance')
+    .textContent =
+      (u.attendance || [])
+        .length;
+
+
+  let totalPrayers=0;
+
+
   if(u.prayers){
-    Object.keys(u.prayers).forEach(k => {
-      totalPrayers += Object.values(u.prayers[k]).filter(Boolean).length;
-    });
+
+    Object.keys(u.prayers)
+      .forEach(k=>{
+
+        totalPrayers +=
+          Object.values(
+            u.prayers[k]
+          )
+          .filter(Boolean)
+          .length;
+
+      });
+
   }
-  document.getElementById('statPrayers').textContent = totalPrayers;
-  document.getElementById('statDays').textContent = u.prayers ? Object.keys(u.prayers).length : 0;
+
+
+  document
+    .getElementById('statPrayers')
+    .textContent =
+      totalPrayers;
+
+
+  document
+    .getElementById('statDays')
+    .textContent =
+      u.prayers
+        ? Object.keys(u.prayers).length
+        : 0;
+
+
+  document
+    .getElementById('toggleAlarm')
+    .checked =
+      u.alarmEnabled !== false;
+
+
+  document
+    .getElementById('alarmSettingsBox')
+    .classList
+    .toggle(
+      'hidden',
+      u.alarmEnabled === false
+    );
+
+
+  const times =
+    u.alarmTimes || {};
+
+
+  PRAYERS.forEach(p=>{
+
+    const el =
+      document.getElementById(
+        'alarm_' + p.id
+      );
+
+
+    if(el){
+
+      el.value =
+        times[p.id] ||
+        p.defaultAlarm;
+
+    }
+
+  });
+
 }
 
-/* ALARM SOUND & LOOP */
+
+/* =========================================================
+   ALARM
+========================================================= */
+
 function toggleAlarmSetting(enabled){
-  const u = userData(); u.alarmEnabled = enabled; updateUser(u);
-  document.getElementById('alarmSettingsBox').classList.toggle('hidden', !enabled);
+
+  const u =
+    userData();
+
+
+  u.alarmEnabled =
+    enabled;
+
+
+  updateUser(u);
+
+
+  document
+    .getElementById('alarmSettingsBox')
+    .classList
+    .toggle(
+      'hidden',
+      !enabled
+    );
+
 }
+
 
 function saveAlarmTimes(){
-  const u = userData();
-  if(!u.alarmTimes) u.alarmTimes = {};
-  PRAYERS.forEach(p => {
-    const el = document.getElementById('alarm_' + p.id);
-    if(el) u.alarmTimes[p.id] = el.value;
+
+  const u =
+    userData();
+
+
+  if(!u.alarmTimes){
+
+    u.alarmTimes={};
+
+  }
+
+
+  PRAYERS.forEach(p=>{
+
+    const el =
+      document.getElementById(
+        'alarm_' + p.id
+      );
+
+
+    if(el){
+
+      u.alarmTimes[p.id] =
+        el.value;
+
+    }
+
   });
+
+
   updateUser(u);
+
 }
+
 
 function startAlarmLoop(){
-  setInterval(() => {
-    if(!currentUser) return;
-    const u = userData();
-    if(!u || u.alarmEnabled === false) return;
-    const d = new Date();
-    const currentHM = String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
-    if(lastTriggeredMinute === currentHM) return;
-    const times = u.alarmTimes || {};
-    PRAYERS.forEach(p => {
-      const targetTime = times[p.id] || p.defaultAlarm;
+
+  setInterval(()=>{
+
+    if(!currentUser)
+      return;
+
+
+    const u =
+      userData();
+
+
+    if(
+      !u ||
+      u.alarmEnabled === false
+    ){
+
+      return;
+
+    }
+
+
+    const d =
+      new Date();
+
+
+    const currentHM =
+      String(
+        d.getHours()
+      ).padStart(2,'0')
+      +
+      ':'
+      +
+      String(
+        d.getMinutes()
+      ).padStart(2,'0');
+
+
+    if(
+      lastTriggeredMinute ===
+      currentHM
+    ){
+
+      return;
+
+    }
+
+
+    const times =
+      u.alarmTimes || {};
+
+
+    PRAYERS.forEach(p=>{
+
+      const targetTime =
+        times[p.id] ||
+        p.defaultAlarm;
+
+
       if(targetTime === currentHM){
-        lastTriggeredMinute = currentHM;
-        triggerAdzanAlarm(p.name);
+
+        lastTriggeredMinute =
+          currentHM;
+
+        triggerAdzanAlarm(
+          p.name
+        );
+
       }
+
     });
-  }, 5000);
+
+  },5000);
+
 }
+
 
 function triggerAdzanAlarm(prayerName){
-  document.getElementById('adzanPrayerTitle').textContent = `Waktu Sholat ${prayerName} Tiba!`;
-  document.getElementById('adzanModal').classList.add('show');
+
+  document
+    .getElementById('adzanPrayerTitle')
+    .textContent =
+      `Waktu Sholat ${prayerName} Tiba!`;
+
+
+  document
+    .getElementById('adzanModal')
+    .classList
+    .add('show');
+
 }
+
 
 function stopAdzanSound(){
-  document.getElementById('adzanModal').classList.remove('show');
+
+  document
+    .getElementById('adzanModal')
+    .classList
+    .remove('show');
+
 }
+
 
 function testAdzanSound(){
-  triggerAdzanAlarm("Tes Suara");
+
+  triggerAdzanAlarm(
+    "Tes Suara"
+  );
+
 }
+
+
+/* =========================================================
+   EXPORT
+========================================================= */
 
 function exportData(){
-  const blob = new Blob([JSON.stringify(userData(), null, 2)], {type: 'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href = url; a.download = `backup-${currentUser}.json`;
+
+  const data =
+    userData();
+
+
+  const blob =
+    new Blob(
+      [
+        JSON.stringify(
+          data,
+          null,
+          2
+        )
+      ],
+      {
+        type:'application/json'
+      }
+    );
+
+
+  const url =
+    URL.createObjectURL(
+      blob
+    );
+
+
+  const a =
+    document.createElement('a');
+
+
+  a.href=url;
+
+  a.download =
+    `backup-${currentUser}.json`;
+
+
   a.click();
+
+
+  URL.revokeObjectURL(url);
+
 }
+
+
+/* =========================================================
+   HAPUS DATA
+========================================================= */
 
 function clearMyData(){
-  if(confirm("Apakah Anda yakin ingin menghapus semua data akun Anda?")){
-    const users = getUsers();
-    delete users[currentUser];
-    saveUsers(users);
-    logout();
+
+  if(
+    !confirm(
+      "Apakah Anda yakin ingin menghapus semua data akun Anda?"
+    )
+  ){
+
+    return;
+
   }
+
+
+  const users =
+    getUsers();
+
+
+  if(currentUser === 'admin'){
+
+    alert(
+      'Akun admin tidak dapat dihapus.'
+    );
+
+    return;
+
+  }
+
+
+  delete users[currentUser];
+
+
+  saveUsers(users);
+
+
+  logout();
+
 }
 
-if(currentUser && userData()){
+
+/* =========================================================
+   START
+========================================================= */
+
+initDefaultAdmin();
+
+
+if(
+  currentUser &&
+  userData()
+){
+
   startApp();
+
 }
+
 </script>
+
 </body>
 </html>
